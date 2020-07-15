@@ -1,7 +1,17 @@
 import { Observable } from 'rxjs';
-import { PostRequestBody } from './postRequestBody';
+import { Connection, EditSavedConnection } from './connection';
+
+export interface ApiResponse {
+  succeeded: boolean;
+  message: string;
+}
 
 export interface API {
-  getTopics: () => Observable<any>;
-  postEnv: (env: PostRequestBody) => Observable<any>;
+  addSavedConnection: (connection: Connection) => Observable<ApiResponse>;
+  editSavedConnection: (config: EditSavedConnection) => Observable<ApiResponse>;
+  getSavedConnections: () => Observable<Connection[]>;
+  getTopics: () => Observable<any[]>;
+  killServer: () => Observable<ApiResponse>;
+  removeSavedConnection: (connection: Connection) => Observable<ApiResponse>;
+  selectSavedConnection: (connection: Connection) => Observable<ApiResponse>;
 }

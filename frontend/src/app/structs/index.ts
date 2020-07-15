@@ -1,2 +1,2 @@
-export { API } from './api';
-export { PostRequestBody } from './postRequestBody';
+export { API, ApiResponse } from './api';
+export { Connection, EditSavedConnection } from './connection';
